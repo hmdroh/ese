@@ -1,5 +1,3 @@
-
-var db = require("../models");
 var FacebookStrategy = require("passport-facebook").Strategy;
 var User = require("../models/user");
 var session = require('express-session')
@@ -37,7 +35,7 @@ module.exports = function (app, passport) {
             // });
                 txt = JSON.stringify(profile);
 
-            db.User.create({
+            User.create({
                 email: profile._json.email,
                 password: "password",
                 displayname: "test",
