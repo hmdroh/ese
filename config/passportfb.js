@@ -39,7 +39,7 @@ module.exports = function (app, passport) {
                 email: profile._json.email,
                 password: "password",
                 displayname: "test",
-                firstname: txt,
+                firstname: "test",
                 lastname: "test",
                 gender: "M",
                 dob: "13/13/2018",
