@@ -1,4 +1,5 @@
 
+var db = require("../models");
 var FacebookStrategy = require("passport-facebook").Strategy;
 var User = require("../models/user");
 var session = require('express-session')
@@ -27,11 +28,38 @@ module.exports = function (app, passport) {
 
     },
         function (accessToken, refreshToken, profile, done) {
-            console.log(profile);
+            console.log(profile._json.email);
             // User.findOrCreate(..., function(err, user) {
             //   if (err) { return done(err); }
             //   done(null, user);
             // });
+                txt = JSON.stringify(profile);
+
+            db.User.create({
+                email: profile._json.email,
+                password: "password",
+                displayname: "test",
+                firstname: txt,
+                lastname: "test",
+                gender: "M",
+                dob: "13/13/2018",
+                accounttype: "E",
+                zipcode: "99999",
+                lat: "1.2",
+                lng: "0.2"
+          
+              }).then(function() {
+                res.redirect(307, "/api/login");
+              }).catch(function(err) {
+                console.log(err);
+                res.json(err);
+                // res.status(422).json(err.errors[0].message);
+              });
+
+
+
+
+
             done(null, profile);
         }
     ));
