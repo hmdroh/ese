@@ -1,0 +1,41 @@
+    <nav>
+        <div class="nav-wrapper">
+        <a href="/" class="brand-logo"><img src="/assets/img/logo.png"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons menu">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/auth/facebook">Sign-up</a></li>
+                <li>|</li>
+                <li><a href="/auth/facebook">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="/signup">Sign-up</a></li>
+        <li><a href="/login">Login</a></li>
+    </ul>
+
+<div class="container">
+
+<div class="row">
+{{#each boo}}
+    <div class="col s12 m6 l6">
+      <div class="card">
+        <div class="card-content">
+          <div class="row">
+            <div class="col l2" id="date">
+              <p>{{local_date}} {{local_time}}</p>
+            </div>
+            <div class="col l8">
+              <a href="/activity/{{group_url}}/{{id}}" id="title">{{name}}</a>
+              <p id="location">{{#if addressFromVenue}}{{venue_address}}{{else}}{{group_address}}{{/if}}</p>
+            </div>
+            <div class="col l2">
+              <a href="/api/fevent/{{id}}/{{group_url}}"><i class="material-icons">{{#if Fav}}favorite{{else}}favorite_border{{/if}}</i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{{/each}}
+  </div>
