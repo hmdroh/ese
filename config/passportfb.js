@@ -28,7 +28,9 @@ module.exports = function (app, passport) {
 
     },
         function (accessToken, refreshToken, profile, done) {
-            console.log(profile._json.email);
+            console.log("----this is before fb----");
+            console.log(profile);
+            console.log("----this is after fb----");
             // User.findOrCreate(..., function(err, user) {
             //   if (err) { return done(err); }
             //   done(null, user);
