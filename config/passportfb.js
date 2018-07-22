@@ -3,7 +3,7 @@ var db = require("../models");
 var FacebookStrategy = require("passport-facebook").Strategy;
 var User = require("../models/user");
 var session = require('express-session')
-
+console.log("----thiss is passport fb file----");
 module.exports = function (app, passport) {
     app.use(passport.initialize());
     app.use(passport.session());
