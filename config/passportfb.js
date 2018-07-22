@@ -22,7 +22,7 @@ module.exports = function (app, passport) {
     passport.use(new FacebookStrategy({
         clientID: process.env.FACEBOOK_ID,
         clientSecret: process.env.FACEBOOK_SECRET,
-        callbackURL: "http://localhost:8080",
+        callbackURL: "https://elders-share-exp.herokuapp.com",
         profileFields: ['id', 'displayName', 'photos', 'email']
 
     },
