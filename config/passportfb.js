@@ -64,7 +64,10 @@ module.exports = function (app, passport) {
         }
     ));
 
-    app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }));
+    app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), function(req,res){
+        
+        res.end("facebook done");
+    });
 
     app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
 
