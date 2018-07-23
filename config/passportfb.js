@@ -24,9 +24,9 @@ module.exports = function (app, passport) {
     passport.use(new FacebookStrategy({
         clientID: process.env.FACEBOOK_ID,
         clientSecret: process.env.FACEBOOK_SECRET,
-        callbackURL: "/auth/facebook/callback",
+        // callbackURL: "/auth/facebook/callback",
         passReqToCallback : true,
-        // callbackURL: "https://elders-share-exp.herokuapp.com",
+        callbackURL: "https://elders-share-exp.herokuapp.com/auth/facebook/callback",
         profileFields: ['id', 'displayName', 'photos', 'email']
 
     },
