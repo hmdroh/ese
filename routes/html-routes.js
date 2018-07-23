@@ -27,6 +27,10 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     res.render("home");
   });
+  
+
+
+
 
 
 
@@ -99,8 +103,7 @@ module.exports = function (app) {
 res.end();
   });
 
-
-
+  
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();

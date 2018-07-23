@@ -10,7 +10,7 @@
 var db = require("../models");
 var path = require("path");
 
-var passport = require("../config/passport");
+var passport = require("passport");
 var request = require("request");
 var eventcontroller = require("../controllers/eventcontroller");
 var meetup = require("../controllers/meetup");
@@ -20,7 +20,7 @@ var zipcodecontroller = require("../controllers/zipcodecontroller");
 module.exports = function(app) {
 
 
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+  app.post("/api/login", passport.authenticate("facebook"), function(req, res) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
